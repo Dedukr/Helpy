@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+
+<style>
+    .rooms-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+<div class="rooms-container">
+    {% include "topic-bar.html" %}
+    <div class="">
+        <h5 class="rooms-found">Rooms available: {{filtered_rooms_count}}</h5>
+        <p><a href="{% url 'rooms-create' %}">Create a room</a></p>
+        {% include "rooms/feed.html" %}
+    </div>
+    {% include "activity-bar.html" %}
+</div>
+{% endblock content %}

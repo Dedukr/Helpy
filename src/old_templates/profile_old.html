@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="profile-container">
+    <div class="">
+        <p><a href="{{ request.META.HTTP_REFERER }}">Back</a></p>
+        {% include "topic-bar.html" %}
+    </div>
+    <div class="">
+        <div class="">
+            <h1>{{ user }}</h1>
+        </div>
+        <div class="">
+            {% include "rooms/feed.html" %}
+        </div>
+    </div>
+    <div class="">
+        {% include "activity-bar.html" %}
+    </div>
+</div>
+
+
+{% endblock content %}

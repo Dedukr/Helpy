@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="login-block">
+    <p><a href="{{ request.META.HTTP_REFERER }}">Back</a></p>
+    <form action="" method="post"> {% csrf_token %}
+        <p> <input type="text" name="username" placeholder="Enter Username"></p>
+        <p> <input type="password" name="password"></p>
+        <input type="submit" value="Login">
+    </form>
+</div>
+<div class="register-question-block">
+    <p>Not registered yet? <a href="{% url 'register' %}">Signed up now</a></p>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+<main class="profile-page layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    {% include "topic-bar.html" %}
+    <!-- Topics End -->
+
+    <!-- Room List Start -->
+    <div class="roomList">
+      <div class="profile">
+        <div class="profile__avatar">
+          <div class="avatar avatar--large active">
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+          </div>
+        </div>
+        <div class="profile__info">
+          <h3>{{user}}</h3>
+          <p>@{{ user }}</p>
+          {% if request.user == user %}
+          <a href="{% url 'profile-edit' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          {% endif %}
+        </div>
+        {% if user.description %}
+        <div class="profile__about">
+          <h3>About</h3>
+          <p>
+            {{user.description}}
+          </p>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="roomList__header">
+        <div>
+          <h2>Study Rooms Hosted by {{ user }}</a>
+          </h2>
+        </div>
+      </div>
+      {% include "rooms/feed.html" %}
+    </div>
+    <!-- Room List End -->
+
+    <!-- Activities Start -->
+    {% include "activity-bar.html" %}
+    <!-- Activities End -->
+  </div>
+</main>
+
+{% endblock content %}
